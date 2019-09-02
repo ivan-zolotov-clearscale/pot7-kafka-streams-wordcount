@@ -1,0 +1,19 @@
+version: '2'
+services:
+  gatling-runner:
+    image: <image>:latest
+    environment:
+      - INPUT_TOPIC_NAME=in-topic
+      - OUTPUT_TOPIC_NAME=out-topic
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 65535
+        hard: 65535
+    logging:
+      driver: awslogs
+      options:
+        awslogs-create-group: true
+        awslogs-group: /ecs/pot7-kafka-streams
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: kafka-streams
