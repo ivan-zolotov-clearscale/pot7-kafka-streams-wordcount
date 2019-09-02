@@ -20,6 +20,7 @@ public class WordCountApplication {
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "pot7-wordcount-application");
         props.put(StreamsConfig.SECURITY_PROTOCOL_CONFIG, "SSL");
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, System.getenv("BOOTSTRAP_SERVERS"));
         props.put("ssl.truststore.location", "kafka.client.truststore.jks");
         props.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());

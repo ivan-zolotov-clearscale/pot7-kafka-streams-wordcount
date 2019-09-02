@@ -1,10 +1,11 @@
 version: '2'
 services:
-  gatling-runner:
+  wordcount-app:
     image: <image>:latest
     environment:
       - INPUT_TOPIC_NAME=in-topic
       - OUTPUT_TOPIC_NAME=out-topic
+      - BOOTSTRAP_SERVERS=
     ulimits:
       nproc: 65535
       nofile:
